@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({id,sku, nombre, stock, edicion, img, editorial, valor, categoria}) => {
 
   return (
     <Card style={{ width: '18rem' }}>
+      <Link to={-1} className='btn btn-war'>Volver</Link>
       <Card.Img variant="top" src={img} />
       <Card.Body>
         <Card.Title>{nombre}</Card.Title>

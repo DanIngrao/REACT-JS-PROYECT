@@ -1,17 +1,18 @@
 const products = [
     {
-        id: 1,
+        id: "1",
         nombre: "SALUD MENTAL Y FE",
         stock: 5,
         editorial: "E625",
         sku: "9781954149168",
         edicion: "2022",
         img: 'https://libreriapeniel.com/wp-content/uploads/2023/03/salud-mental-y-fe.jpg',
-        valor: 4425.69
+        valor: 4425.69,
+        categoria: "libros"
     }
     ,
     {
-        id: 2,
+        id: "2",
         nombre: "TIEMPO Y ETERNIDAD",
         stock: 5,
         editorial: "Peniel",
@@ -23,7 +24,7 @@ const products = [
     }
     ,
     {
-        id: 3,
+        id: "3",
         nombre: "REALIDAD ESPIRITUAL U OBSESION",
         stock: 10,
         editorial: "Peniel",
@@ -35,7 +36,7 @@ const products = [
     }
     ,
     {
-        id: 4,
+        id: "4",
         nombre: "VICTORIAS ESPIRITUALES EN EL ALMA",
         stock: 10,
         editorial: "Hojas Del Sur",
@@ -47,7 +48,7 @@ const products = [
     }
     ,
     {
-        id: 5,
+        id: "5",
         nombre: "EL DIA QUE MI ALMA LE BESO",
         stock: 15,
         editorial: "Hojas Del Sur",
@@ -58,7 +59,7 @@ const products = [
         categoria: "libros"
     },
     {
-        id: 6,
+        id: "6",
         nombre: "Biblia Del Ministro, RV1960 -Piel Negra",
         stock: 15,
         editorial: "Holman",
@@ -69,7 +70,7 @@ const products = [
         categoria: "biblias"
     },
     {
-        id: 7,
+        id: "7",
         nombre: "Biblia, NVI, Letra Grande, Con Cierre -Piel Negra",
         stock: 15,
         editorial: "Peniel",
@@ -80,7 +81,7 @@ const products = [
         categoria: "biblias"
     },
     {
-        id: 8,
+        id: "8",
         nombre: "Biblia, Hispanoamericana -Piel Marron",
         stock: 15,
         editorial: "Hojas Del Sur",
@@ -97,5 +98,13 @@ export const getProducts = ()=>{
         setTimeout(()=>{
             resolve(products)
         },500)
+    })
+}
+
+export const getProductById = (itemId)=>{
+    return new Promise((resolve)=>{
+        setTimeout(()=>{
+            resolve(products.find(prod=> prod.id == itemId ))
+        },500)        
     })
 }
