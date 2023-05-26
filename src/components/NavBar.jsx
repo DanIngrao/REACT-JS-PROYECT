@@ -8,19 +8,19 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const NavBar = () => {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand href="/">Libreria Eden</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <NavLink to="/">Home</NavLink>
-            
-            <NavLink to="/catalogo">Catalogo</NavLink>
-            
-            <CartWidget/>
-          </Nav>
-        </Navbar.Collapse>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/catalogo">Catalogo</Nav.Link>
+              <Nav.Link href="/catalogo/libros">Libros</Nav.Link>
+              <Nav.Link href="/catalogo/biblias">Biblias</Nav.Link>
+              <CartWidget/>
+            </Nav>
+          </Navbar.Collapse>
       </Container>
     </Navbar>
   )

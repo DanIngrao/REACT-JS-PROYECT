@@ -1,8 +1,11 @@
 import React from 'react'
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const CartWidget = () => {
   return (
-    <div>🛒0</div>
+    <NavDropdown title="🛒0" id="basic-nav-dropdown">
+      🛒
+    </NavDropdown>
   )
 }
 
