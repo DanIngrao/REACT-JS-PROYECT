@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Rutas from './routes/Rutas';
+import Footer from './components/Footer/Footer';
+import './App.css'
 
 function App() {
   
   return (
-    <Rutas/>
+    <div className='App'>
+      <Rutas/>
+      <Footer/>
+    </div>
   )
 }
 

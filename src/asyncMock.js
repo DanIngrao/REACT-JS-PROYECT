@@ -92,27 +92,3 @@ const products = [
         categoria: "biblias"
     }
 ]
-
-export const getProducts = ()=>{
-    return new Promise((resolve)=>{
-        setTimeout(()=>{
-            resolve(products)
-        },500)
-    })
-}
-
-export const getProductById = (itemId)=>{
-    return new Promise((resolve)=>{
-        setTimeout(()=>{
-            resolve(products.find(prod=> prod.id == itemId ))
-        },500)        
-    })
-}
-
-export const getProductByCategory = (categoryId)=>{
-    return new Promise((resolve)=>{
-        setTimeout(()=>{
-            resolve(products.filter(prod=> prod.categoria == categoryId))
-        },500)
-    })
-}

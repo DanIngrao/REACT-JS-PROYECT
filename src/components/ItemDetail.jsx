@@ -1,13 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import ItemCount from './ItemCount';
+import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../context/CartContext';
 
 const ItemDetail = ({id,sku, nombre, stock, edicion, img, editorial, valor, categoria}) => {
 
+  const [cantidadAgregada,setCantidadAgregada] = useState(0)
+
+  const {addItem, cart} = useContext(CartContext)
+
+  const handleOnAdd = (cantidad) => {
+    
+    setCantidadAgregada(cantidad)
+
+    const itemCart = {id,img,nombre,valor}
+
+    addItem(itemCart,cantidad)
+    
+  }
+  
   return (
     <Card style={{ width: '18rem' }}>
-      <Link to={-1} className='btn btn-war'>Volver</Link>
+      <Link to='/' className='btn btn-war'>Volver</Link>
       <Card.Img variant="top" src={img} />
       <Card.Body>
         <Card.Title>{nombre}</Card.Title>
@@ -22,7 +39,15 @@ const ItemDetail = ({id,sku, nombre, stock, edicion, img, editorial, valor, cate
         <ListGroup.Item>Valor: ${valor}</ListGroup.Item>
       </ListGroup>
       <Card.Body>
-        <Card.Link href="#">Agregar al carrito</Card.Link>
+        {
+          cantidadAgregada > 0 ? (
+            <Link to='/cart'>
+              <Button variant="primary" size="lg">Finalizar Compra</Button>
+            </Link>
+            ) : (
+            <ItemCount inicial={1} stock={stock} onAdd={handleOnAdd}/>
+            )
+        }
       </Card.Body>
     </Card>
   )
