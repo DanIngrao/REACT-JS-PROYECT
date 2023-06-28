@@ -1,0 +1,15 @@
+.ItemDetail{
+    margin: 25px;
+}
+
+.contador{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.btfinalizarcompra{
+    display: flex;
+    justify-content: center;
+}

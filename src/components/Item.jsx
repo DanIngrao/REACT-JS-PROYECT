@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import './Item.css'
 
 const Item = ({id,sku, nombre, stock, edicion, img, editorial, valor, categoria}) => {
   return (
@@ -16,10 +17,8 @@ const Item = ({id,sku, nombre, stock, edicion, img, editorial, valor, categoria}
         <ListGroup.Item>Valor: ${valor}</ListGroup.Item>
         <ListGroup.Item>Stock: {stock}</ListGroup.Item>
       </ListGroup>
-      <Card.Body>
-        <Link to={`/item/${id}`}>
-          <Button variant="primary" size="lg" className='btn btn-war'>Ver mas</Button>
-        </Link>
+      <Card.Body className='vermas'>
+          <Button as={Link} to={`/item/${id}`} variant="primary" size="lg" className='btn btn-war'>Ver mas</Button>
       </Card.Body>
     </Card>
   )

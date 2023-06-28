@@ -1,0 +1,9 @@
+.imgcarrito{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.tablacarrito{
+    margin-top: 25px;
+}

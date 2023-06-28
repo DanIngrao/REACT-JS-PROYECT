@@ -5,6 +5,7 @@ import ItemCount from './ItemCount';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
+import './ItemDetail.css'
 
 const ItemDetail = ({id,sku, nombre, stock, edicion, img, editorial, valor, categoria}) => {
 
@@ -23,8 +24,8 @@ const ItemDetail = ({id,sku, nombre, stock, edicion, img, editorial, valor, cate
   }
   
   return (
-    <Card style={{ width: '18rem' }}>
-      <Link to='/' className='btn btn-war'>Volver</Link>
+    <Card className='ItemDetail'>
+      <Button as={Link} to={-1} variant='danger'className='btn btn-war'>Volver</Button>
       <Card.Img variant="top" src={img} />
       <Card.Body>
         <Card.Title>{nombre}</Card.Title>
@@ -41,9 +42,7 @@ const ItemDetail = ({id,sku, nombre, stock, edicion, img, editorial, valor, cate
       <Card.Body>
         {
           cantidadAgregada > 0 ? (
-            <Link to='/cart'>
-              <Button variant="primary" size="lg">Finalizar Compra</Button>
-            </Link>
+              <Button as={Link} to='/cart' variant="primary" size="lg" className='btfinalizarcompra'>Finalizar Compra</Button>
             ) : (
             <ItemCount inicial={1} stock={stock} onAdd={handleOnAdd}/>
             )

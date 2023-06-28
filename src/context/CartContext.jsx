@@ -6,6 +6,7 @@ export const CartProvider = ({children}) => {
     
     const [cart, setCart] = useState([])
     const [total, setTotal] = useState (0)
+    const [totalCantidad, setTotalCantidad]=useState(0)
 
     useEffect(()=>{},[cart])
 
@@ -18,7 +19,9 @@ export const CartProvider = ({children}) => {
         
         (setCart(prev => [...prev, {...itemCart,cantidad}]),
         
-        setTotal(itemCart.valor*cantidad + total))
+        setTotal(itemCart.valor*cantidad + total),
+        
+        setTotalCantidad(cantidad+totalCantidad))
         
         : alert('El producto ya fue agregado');
     }
@@ -33,6 +36,7 @@ export const CartProvider = ({children}) => {
     const clearCart = () => {
         setCart([])
         setTotal(0)
+        setTotalCantidad(0)
     }
 
     const isInCart = (itemId) => {
@@ -40,7 +44,7 @@ export const CartProvider = ({children}) => {
     }
 
     return(
-        <CartContext.Provider value={{cart, addItem, removeItem, total, clearCart}}>
+        <CartContext.Provider value={{cart, addItem, removeItem, total, totalCantidad, clearCart}}>
             {children}
         </CartContext.Provider>
     )
