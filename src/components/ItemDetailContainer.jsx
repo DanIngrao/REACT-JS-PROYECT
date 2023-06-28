@@ -3,8 +3,11 @@ import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
 import { doc, getDoc} from 'firebase/firestore'
 import { db } from '../services/firebase/firebase.config'
+import Spinner from 'react-bootstrap/Spinner';
 
 const ItemDetailContainer = () => {
+
+  const [loading, setLoading] = useState(true)
 
   const[product,setProduct] = useState([])
 
@@ -19,13 +22,21 @@ const ItemDetailContainer = () => {
           const data = response.data()
           const productAdapted = {id: response.id, ...data}
           setProduct(productAdapted)
-        })
+        }).catch().finally(()=>{setLoading(false)})
   },[itemId])
 
   return (
-    <div>
-      <ItemDetail {...product}/>
-    </div>
+    <>
+      {loading ? 
+
+      <Spinner animation="border" variant="primary" />
+
+      :
+
+      <div>
+        <ItemDetail {...product}/>
+      </div>}
+    </>
   )
 }
 

@@ -4,10 +4,13 @@ import { useParams } from 'react-router-dom'
 import './ItemListContainer.css'
 import { getDocs, collection, query, where } from 'firebase/firestore'
 import { db } from '../../services/firebase/firebase.config'
+import Spinner from 'react-bootstrap/Spinner';
 
 const ItemListContainer = () => {
 
-  const[products,setProducts] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  const[products, setProducts] = useState([])
 
   const {categoryId} = useParams()
 
@@ -24,13 +27,22 @@ const ItemListContainer = () => {
           return {id: doc.id, ...data}
         })
         setProducts(productsAdapted)
-      })
+      }).catch().finally(()=>{setLoading(false)})
   },[categoryId])
 
   return (
-    <div className='contenedor'>
-      <ItemList products={products}/>
-    </div>
+    
+    <>
+      {loading ? 
+
+      <Spinner animation="border" variant="primary" />
+
+      :
+      
+      <div className='contenedor'>
+        <ItemList products={products}/>
+      </div>}
+    </>    
   )
 }
 
