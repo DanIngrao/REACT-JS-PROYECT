@@ -10,7 +10,7 @@ const Checkout = () => {
 
     const [orederId, setOrderId] = useState('')
 
-    const [cart, total, clearCart] = useContext(CartContext)
+    
 
     const createOrder = async ({name, phone, email}) => {
         
