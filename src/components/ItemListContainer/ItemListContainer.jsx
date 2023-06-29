@@ -35,7 +35,9 @@ const ItemListContainer = () => {
     <>
       {loading ? 
 
-      <Spinner animation="border" variant="primary" />
+      <div className='spinnerloading'>
+        <Spinner animation="border" variant="primary" />
+      </div>  
 
       :
       

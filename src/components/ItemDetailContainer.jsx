@@ -4,6 +4,7 @@ import ItemDetail from './ItemDetail'
 import { doc, getDoc} from 'firebase/firestore'
 import { db } from '../services/firebase/firebase.config'
 import Spinner from 'react-bootstrap/Spinner';
+import './ItemDetailContainer.css'
 
 const ItemDetailContainer = () => {
 
@@ -29,7 +30,9 @@ const ItemDetailContainer = () => {
     <>
       {loading ? 
 
-      <Spinner animation="border" variant="primary" />
+      <div className='spinnerloading'>
+        <Spinner animation="border" variant="primary" />
+      </div>
 
       :
 

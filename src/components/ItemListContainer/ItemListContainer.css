@@ -6,3 +6,11 @@
   margin: 25px;
   background-color: transparent;
 }
+
+.spinnerloading{
+  margin-top: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
+}
