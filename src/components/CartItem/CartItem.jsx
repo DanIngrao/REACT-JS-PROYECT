@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap';
 import ItemCount from '../ItemCount';
 import './CartItem.css'
 
-const CartItem = ({nombre,valor,cantidad,img}) => {
+const CartItem = ({id,nombre,valor,cantidad,img}) => {
   
     const {removeItem} = useContext(CartContext)
     
@@ -24,10 +24,10 @@ const CartItem = ({nombre,valor,cantidad,img}) => {
                <tbody>
                  <tr>
                    <td><Image className='imgcarrito' src={img} fluid  thumbnail/></td>
-                   <td>{nombre} {'$'+ valor}</td>
+                   <td>{nombre +' '+'=>'+' '+'$'+ valor}</td>
                    <td>{cantidad}</td>
                    <td>
-                    <Button variant="danger" onClick={removeItem}>X</Button>
+                    <Button variant="danger" onClick={removeButton}>X</Button>
                    </td>
                  </tr>
                </tbody>

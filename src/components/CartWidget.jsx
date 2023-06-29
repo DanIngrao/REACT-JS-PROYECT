@@ -5,15 +5,13 @@ import './CartWidget.css';
 import Nav from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const CartWidget = () => {
 
   const {totalCantidad} = useContext(CartContext)
   
   let location = useLocation();
-
-  console.log(location.pathname)
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -26,7 +24,7 @@ const CartWidget = () => {
         </Navbar.Text>
       <Offcanvas className="text-bg-dark p-3" show={show} onHide={handleClose} placement='end'>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Carrito</Offcanvas.Title>
+          <Offcanvas.Title as={Link} to='/cart'>Carrito</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className='contenedorOffCanvas'>
           <Cart/>

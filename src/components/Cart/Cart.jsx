@@ -22,7 +22,7 @@ const Cart = () => {
                 </div> 
                 :
                 
-                <div>
+                <div className='cart'>
                     {cart.map(p => <CartItem key={p.id}{...p}/>)}
                         
                     <Button variant="danger" onClick={()=> clearCart() }>Vaciar Carrito</Button>

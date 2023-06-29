@@ -10,9 +10,6 @@ export const CartProvider = ({children}) => {
 
     useEffect(()=>{},[cart])
 
-    console.log(cart)
-    console.log(total)
-
     const addItem = (itemCart,cantidad) => {
         
         !isInCart(itemCart.id) ? 
@@ -30,7 +27,7 @@ export const CartProvider = ({children}) => {
     const removeItem = (itemId) =>{
         const cartUpdated = cart.filter(prod => prod.id !== itemId)
         setCart(cartUpdated)
-        setTotal(cartUpdated)
+        setTotalCantidad()
     }
 
     const clearCart = () => {
