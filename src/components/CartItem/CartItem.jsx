@@ -27,7 +27,7 @@ const CartItem = ({id,nombre,valor,cantidad,img}) => {
                    <td>{nombre +' '+'=>'+' '+'$'+ valor}</td>
                    <td>{cantidad}</td>
                    <td>
-                    <Button variant="danger" onClick={removeButton}>X</Button>
+                    <Button variant="danger" onClick={removeItem}>X</Button>
                    </td>
                  </tr>
                </tbody>
