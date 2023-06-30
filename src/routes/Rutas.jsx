@@ -7,7 +7,6 @@ import ItemListContainer from '../components/ItemListContainer/ItemListContainer
 import { CartProvider } from '../context/CartContext'
 import Cart from '../components/Cart/Cart'
 import Checkout from '../components/Checkout/Checkout'
-import './Rutas.css'
 
 const Rutas = () => {
   return (
