@@ -14,7 +14,8 @@ const Cart = () => {
 
             {cart == '' ? 
                 <div className='cartvacio'>
-                   <h2>El carrito se encuentra vacio</h2>
+                   <h2 style={{color: 'white'}}>El carrito se encuentra vacio</h2>
+                   <br></br>
                    <Link to='/'>
                     <Button variant="primary" size="lg">
                         Volver al catalogo
@@ -31,7 +32,7 @@ const Cart = () => {
                     {cart.map(p => <CartItem key={p.id}{...p}/>)}
                         
                     <Button variant="danger" onClick={()=> clearCart() }>Vaciar Carrito</Button>
-                    <h4>Total :${total}</h4>
+                    <h4 style={{color: 'white'}}>Total :${total}</h4>
                     <Button as={Link} to='/checkout' variant="primary">Checkout</Button>
 
                 </div>
