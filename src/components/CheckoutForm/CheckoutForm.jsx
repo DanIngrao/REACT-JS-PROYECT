@@ -26,13 +26,13 @@ const CheckoutForm = ({onConfirm}) => {
           <Form.Group className="mb-3" controlId="formBasicEmail">
             
             <Form.Label>Nombre y Apellido</Form.Label>
-            <Form.Control type="text" placeholder="Nombre y Apellido" value={name} onChange={({target})=>setName(target.value)}/>
+            <Form.Control type="text" placeholder="Nombre y Apellido" value={name} onChange={({target})=>setName(target.value)} required/>
             
             <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Email" value={email} onChange={({target})=>setEmail(target.value)}/>
+            <Form.Control type="email" placeholder="Email" value={email} onChange={({target})=>setEmail(target.value)} required/>
             
             <Form.Label>Telefono</Form.Label>
-            <Form.Control type="text" placeholder="Telefono" value={phone} onChange={({target})=>setPhone(target.value)}/>
+            <Form.Control type="text" placeholder="Telefono" value={phone} onChange={({target})=>setPhone(target.value)} required/>
     
           </Form.Group>
 

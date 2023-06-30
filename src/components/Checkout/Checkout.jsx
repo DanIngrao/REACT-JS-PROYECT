@@ -35,6 +35,8 @@ const Checkout = () => {
         
         setOrderId(id),
         
+        clearCart(),
+
         setLoading(false)
 
         );
@@ -51,7 +53,7 @@ const Checkout = () => {
             :
             orderId?
                 <>
-                    <h1 style={{color:'white'}}>El id de su orden es: {orderId}</h1>
+                    <h1 style={{color:'white'}}>El codigo de orden de su pedido es: {orderId}</h1>
                     <br />
                     <Button as={Link} to='/' variant="primary" size="lg">
                         Volver al catalogo
