@@ -15,13 +15,10 @@ const Cart = () => {
             {cart == '' ? 
                 <div className='cartvacio'>
                    <h2 style={{color: 'white'}}>El carrito se encuentra vacio</h2>
-                   <br></br>
-                   <Link to='/'>
-                    <Button variant="primary" size="lg">
+                   <br />
+                    <Button as={Link} to='/' variant="primary" size="lg">
                         Volver al catalogo
-                    </Button>
-                    </Link>
-                    
+                    </Button> 
                 </div> 
                 :
                 
