@@ -8,15 +8,15 @@ export const CartProvider = ({children}) => {
     const [total, setTotal] = useState (0)
     const [totalCantidad, setTotalCantidad]=useState(0)
 
-    useEffect(()=>{},[cart])
+   
 
     const addItem = (itemCart,cantidad) => {
         
         !isInCart(itemCart.id) ? 
         
         (setCart(prev => [...prev, {...itemCart,cantidad}]),
-        
-        setTotal(itemCart.valor*cantidad + total),
+
+        setTotal(itemCart.valor*cantidad.toFixed(2) + total),
         
         setTotalCantidad(cantidad+totalCantidad))
         
@@ -24,10 +24,11 @@ export const CartProvider = ({children}) => {
     }
 
 
-    const removeItem = (itemId) =>{
-        const cartUpdated = cart.filter(prod => prod.id !== itemId)
-        setCart(cartUpdated)
-        setTotalCantidad()
+    const removeItem = (itemRemoved,cantidad) =>{
+        const cartUpdated = cart.filter(prod => prod.id !== itemRemoved.id)
+        setCart(cartUpdated),
+        setTotalCantidad(totalCantidad-cantidad),
+        setTotal(total-itemRemoved.valor*cantidad.toFixed(2))
     }
 
     const clearCart = () => {

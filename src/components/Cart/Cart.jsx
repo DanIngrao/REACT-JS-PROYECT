@@ -3,6 +3,7 @@ import { CartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import CartItem from '../CartItem/CartItem';
+import './Cart.css'
 
 const Cart = () => {
 
@@ -10,7 +11,8 @@ const Cart = () => {
 
     return(
         <>
-            {total == 0 ? 
+
+            {cart == '' ? 
                 <div>
                    <h2>El carrito se encuentra vacio</h2>
                    <Link to='/'>
@@ -23,6 +25,9 @@ const Cart = () => {
                 :
                 
                 <div className='cart'>
+                    
+                    <Button as={Link} to={-1} variant='danger'className='btn btn-war'>Volver</Button>
+                    
                     {cart.map(p => <CartItem key={p.id}{...p}/>)}
                         
                     <Button variant="danger" onClick={()=> clearCart() }>Vaciar Carrito</Button>

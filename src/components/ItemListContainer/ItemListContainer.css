@@ -9,8 +9,9 @@
 
 .spinnerloading{
   margin-top: 250px;
+  margin-bottom: 250px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-content: center;
   object-fit: contain;
 }

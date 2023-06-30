@@ -10,6 +10,16 @@ const CartItem = ({id,nombre,valor,cantidad,img}) => {
   
     const {removeItem} = useContext(CartContext)
     
+    
+    const handleRemove = ()=>{
+      
+      console.log(cantidad)
+      
+      const itemRemoved = {id,img,nombre,valor}
+
+      removeItem(itemRemoved,cantidad)
+    }
+
     return (
        <>
           <Table striped bordered hover variant='dark' className='tablacarrito'>
@@ -27,7 +37,7 @@ const CartItem = ({id,nombre,valor,cantidad,img}) => {
                    <td>{nombre +' '+'=>'+' '+'$'+ valor}</td>
                    <td>{cantidad}</td>
                    <td>
-                    <Button variant="danger" onClick={removeItem}>X</Button>
+                    <Button variant="danger" onClick={handleRemove}>X</Button>
                    </td>
                  </tr>
                </tbody>
