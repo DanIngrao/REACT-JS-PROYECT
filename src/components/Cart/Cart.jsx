@@ -13,7 +13,7 @@ const Cart = () => {
         <>
 
             {cart == '' ? 
-                <div>
+                <div className='cartvacio'>
                    <h2>El carrito se encuentra vacio</h2>
                    <Link to='/'>
                     <Button variant="primary" size="lg">
