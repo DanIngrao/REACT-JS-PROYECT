@@ -3,7 +3,6 @@ import Table from 'react-bootstrap/Table';
 import Image from 'react-bootstrap/Image';
 import { CartContext } from '../../context/CartContext';
 import { Button } from 'react-bootstrap';
-import ItemCount from '../ItemCount';
 import './CartItem.css'
 
 const CartItem = ({id,nombre,valor,cantidad,img}) => {

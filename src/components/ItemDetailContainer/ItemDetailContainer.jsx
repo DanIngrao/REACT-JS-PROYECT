@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import ItemDetail from './ItemDetail'
 import { doc, getDoc} from 'firebase/firestore'
-import { db } from '../services/firebase/firebase.config'
 import Spinner from 'react-bootstrap/Spinner';
 import './ItemDetailContainer.css'
+import Swal from 'sweetalert2'
+import ItemDetail from '../ItemDetail/ItemDetail';
+import { db } from '../../services/firebase/firebase.config';
 
 const ItemDetailContainer = () => {
 
@@ -23,7 +24,14 @@ const ItemDetailContainer = () => {
           const data = response.data()
           const productAdapted = {id: response.id, ...data}
           setProduct(productAdapted)
-        }).catch().finally(()=>{setLoading(false)})
+        }).catch( error => {
+          Swal.fire({
+            tittle:'Error',
+            text:'Error de comunicacion con el servidor',
+            icon:'error',
+            confirmButtonColor: '#dc3545'
+        })}
+        ).finally(()=>{setLoading(false)})
   },[itemId])
 
   return (

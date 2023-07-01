@@ -16,7 +16,7 @@ export const CartProvider = ({children}) => {
         
         (setCart(prev => [...prev, {...itemCart,cantidad}]),
 
-        setTotal(itemCart.valor*cantidad.toFixed(2) + total),
+        setTotal(itemCart.valor*cantidad + total),
         
         setTotalCantidad(cantidad+totalCantidad))
         
@@ -28,7 +28,7 @@ export const CartProvider = ({children}) => {
         const cartUpdated = cart.filter(prod => prod.id !== itemRemoved.id)
         setCart(cartUpdated),
         setTotalCantidad(totalCantidad-cantidad),
-        setTotal(total-itemRemoved.valor*cantidad.toFixed(2))
+        setTotal(total-itemRemoved.valor*cantidad)
     }
 
     const clearCart = () => {

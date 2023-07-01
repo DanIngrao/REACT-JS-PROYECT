@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import ItemList from '../ItemList'
+import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
 import './ItemListContainer.css'
 import { getDocs, collection, query, where } from 'firebase/firestore'
 import { db } from '../../services/firebase/firebase.config'
 import Spinner from 'react-bootstrap/Spinner';
+import Swal from 'sweetalert2'
 
 const ItemListContainer = () => {
 
@@ -27,7 +28,14 @@ const ItemListContainer = () => {
           return {id: doc.id, ...data}
         })
         setProducts(productsAdapted)
-      }).catch().finally(()=>{setLoading(false)})
+      }).catch(error =>{
+        Swal.fire({
+          tittle:'Error',
+          text:'Error de comunicacion con el servidor',
+          icon:'error',
+          confirmButtonColor: '#dc3545'
+      })}
+      ).finally(()=>{setLoading(false)})
   },[categoryId])
 
   return (

@@ -7,6 +7,7 @@ import './Checkout.css'
 import Spinner from 'react-bootstrap/Spinner';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 const Checkout = () => {
 
@@ -37,9 +38,23 @@ const Checkout = () => {
         
         clearCart(),
 
-        setLoading(false)
+        setLoading(false),
 
-        );
+        Swal.fire({
+            tittle:'Orden enviada',
+            text:'A continuacion te dejamos el codigo de tu orden',
+            icon:'success',
+            confirmButtonColor: '#0d6efd'
+        })
+
+        ).catch(error=>{
+            Swal.fire({
+                tittle:'Error',
+                text:'Error de comunicacion con el servidor',
+                icon:'error',
+                confirmButtonColor: '#dc3545'
+            })}
+        )
     
     }
 

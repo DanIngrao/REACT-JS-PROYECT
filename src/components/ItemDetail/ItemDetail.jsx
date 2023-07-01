@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import ItemCount from './ItemCount';
+import ItemCount from '../ItemCount/ItemCount';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../context/CartContext';
+import { CartContext } from '../../context/CartContext';
 import './ItemDetail.css'
 
 const ItemDetail = ({id,sku, nombre, stock, edicion, img, editorial, valor, categoria}) => {
