@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
+import Swal from 'sweetalert2'
 
 export const CartContext = createContext()
 
@@ -20,7 +21,12 @@ export const CartProvider = ({children}) => {
         
         setTotalCantidad(cantidad+totalCantidad))
         
-        : alert('El producto ya fue agregado');
+        : Swal.fire({
+            tittle:'Error',
+            text:'El producto ya ha sido agregado al carrito',
+            icon:'error',
+            confirmButtonColor: '#dc3545'
+        })
     }
 
 
