@@ -23,7 +23,7 @@ export const CartProvider = ({children}) => {
         
         : Swal.fire({
             tittle:'Error',
-            text:'El producto ya ha sido agregado al carrito',
+            text:'El producto ya ha sido agregado, proceda al carrito para modificar esta opcion',
             icon:'error',
             confirmButtonColor: '#dc3545'
         })
